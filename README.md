@@ -17,7 +17,7 @@ By using SQL I performed the following analysis and I was able to locate who exa
 
 - In total salary for the current employees is **$15,892,491,033.00**:
 
-     ![Screenshot](/images/total_salaries.png.png?raw=true "Retiring titles")
+     ![Screenshot](/images/total_salaries.png.png?raw=true "Total Salaries")
 
 - By creating a unique titles table, I was able to avoid the double counting for the employees that has been working for the same company for a long time and had different titles. In total, there are expected **90398** employees are going to retire in the next few year. 
 
