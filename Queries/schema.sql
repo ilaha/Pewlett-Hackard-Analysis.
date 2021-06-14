@@ -64,3 +64,8 @@ CREATE TABLE dept_emp (
 
 SELECT * FROM departments;
 
+SELECT COUNT(ce.emp_no), de.dept_no
+FROM employees as ce
+LEFT JOIN dept_emp as de
+ON ce.emp_no = de.emp_no
+GROUP BY de.dept_no;

@@ -86,22 +86,31 @@ WHERE birth_date BETWEEN '1955-01-01' AND '1955-12-31';
 
 
 
+
 -- Retirement eligibility
-SELECT first_name, last_name
-INTO retirement_info
-FROM employees
+SELECT em.emp_no, em.first_name, em.last_name, title, from_date, to_date
+INTO retirement_titles
+FROM employees as em
+JOIN titles as tt
+ON em.emp_no = tt.emp_no
 WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31')
-AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31');
-
-
-
-SELECT * FROM retirement_info;
-
+AND (to_date = '9999-01-01')
+ORDER BY em.emp_no;
 
 
 
 
+SELECT emp_no, first_name, last_name, title, to_date
+FROM retirement_titles;
 
+DROP TABLE unique_titles;
 
+-- Use Dictinct with Orderby to remove duplicate rows
+SELECT DISTINCT ON (emp_no) emp_no,first_name, last_name, title
+INTO unique_titles
+FROM retirement_titles
+ORDER BY emp_no ASC, last_name DESC;
+
+SELECT * FROM unique_titles;
 
 
