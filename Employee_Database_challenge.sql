@@ -109,7 +109,7 @@ INTO unique_titles
 FROM retirement_titles
 ORDER BY emp_no ASC, to_date DESC;
 
-SELECT * FROM unique_titles;
+SELECT count(title) FROM unique_titles;
 
 -- Create a new table for only titles and counts of each title
 
@@ -129,9 +129,6 @@ FROM employees;
 SELECT from_date, to_date
 FROM dept_emp;
 
-SELECT title
-FROM titles;
-
 
 --Join three tables and create a new mentors table that showing all retiring employees that could also be mentors
 
@@ -148,5 +145,11 @@ AND (de.to_date = '9999-01-01')
 ORDER BY e.emp_no;
 
 
-SELECT * FROM mentors;
+SELECT * FROM mentors
+ORDER BY title ASC;
 
+
+SELECT CAST(SUM(salary) AS money) AS "Total Salaries"
+FROM salaries;
+
+Select count(emp_no) from employees;
